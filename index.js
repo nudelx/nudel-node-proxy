@@ -6,6 +6,14 @@ var SSP_LINK =
 var SSF_LINK =
   'https://samanage.tpondemand.com/api/v1/Bugs?where=(Tags%20contains%20%27*block*%27%20)and(EntityState.Name%20not%20contains%20%20%27Code%27)and(EntityState.Id%20ne%20%27174%27)and(EntityState.Id%20ne%20%20%27225%27)and(EntityState.Name%20not%20contains%20%20%27*Deploy*%27)and(EntityState.Name%20not%20contains%20%20%27*Design*%27)and(EntityState.Name%20not%20contains%20%20%27*Live*%27)and(Project.Name%20contains%20%27SSF%27)&take=100&access_token=Mjk6YUdWZm9XbU8yemw1Q1BaMVBKZVEvL3VjdW1zeWN2YkJnVys3MHdocmthYz0='
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  next()
+})
 app.get('/SSP', function(req, res) {
   axios.get(SSP_LINK).then(data => {
     // console.log(data.data)
