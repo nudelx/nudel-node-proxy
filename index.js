@@ -1,10 +1,14 @@
 var express = require('express')
 var app = express()
 var axios = require('axios')
+var token = require('./token.json')
+
 var SSP_LINK =
-  'https://samanage.tpondemand.com/api/v1/Bugs?where=(Tags%20contains%20%27*block*%27%20)and(EntityState.Name%20not%20contains%20%20%27Code%27)and(EntityState.Id%20ne%20%27174%27)and(EntityState.Id%20ne%20%20%27225%27)and(EntityState.Name%20not%20contains%20%20%27*Deploy*%27)and(EntityState.Name%20not%20contains%20%20%27*Design*%27)and(EntityState.Name%20not%20contains%20%20%27*Live*%27)and(Project.Name%20contains%20%27SSP%27)&take=100&access_token=Mjk6YUdWZm9XbU8yemw1Q1BaMVBKZVEvL3VjdW1zeWN2YkJnVys3MHdocmthYz0='
+  'https://samanage.tpondemand.com/api/v1/Bugs?where=(Tags%20contains%20%27*block*%27%20)and(EntityState.Name%20not%20contains%20%20%27Code%27)and(EntityState.Id%20ne%20%27174%27)and(EntityState.Id%20ne%20%20%27225%27)and(EntityState.Name%20not%20contains%20%20%27*Deploy*%27)and(EntityState.Name%20not%20contains%20%20%27*Design*%27)and(EntityState.Name%20not%20contains%20%20%27*Live*%27)and(Project.Name%20contains%20%27SSP%27)&take=100&access_token=' +
+  token.key
 var SSF_LINK =
-  'https://samanage.tpondemand.com/api/v1/Bugs?where=(Tags%20contains%20%27*block*%27%20)and(EntityState.Name%20not%20contains%20%20%27Code%27)and(EntityState.Id%20ne%20%27174%27)and(EntityState.Id%20ne%20%20%27225%27)and(EntityState.Name%20not%20contains%20%20%27*Deploy*%27)and(EntityState.Name%20not%20contains%20%20%27*Design*%27)and(EntityState.Name%20not%20contains%20%20%27*Live*%27)and(Project.Name%20contains%20%27SSF%27)&take=100&access_token=Mjk6YUdWZm9XbU8yemw1Q1BaMVBKZVEvL3VjdW1zeWN2YkJnVys3MHdocmthYz0='
+  'https://samanage.tpondemand.com/api/v1/Bugs?where=(Tags%20contains%20%27*block*%27%20)and(EntityState.Name%20not%20contains%20%20%27Code%27)and(EntityState.Id%20ne%20%27174%27)and(EntityState.Id%20ne%20%20%27225%27)and(EntityState.Name%20not%20contains%20%20%27*Deploy*%27)and(EntityState.Name%20not%20contains%20%20%27*Design*%27)and(EntityState.Name%20not%20contains%20%20%27*Live*%27)and(Project.Name%20contains%20%27SSF%27)&take=100&access_token=' +
+  token.key
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
