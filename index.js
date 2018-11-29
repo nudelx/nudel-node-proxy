@@ -8,7 +8,6 @@ var output = require('./common/outputFormater')
 app.use(middleware.cors)
 
 app.get(links.SSP.BLOCK_BUGS_URL, function(req, res) {
-  console.log(req)
   axios
     .get(links.SSP.BLOCK_BUGS_LINK)
     .then(data => output.jsonOut(data)(res))
@@ -18,6 +17,20 @@ app.get(links.SSP.BLOCK_BUGS_URL, function(req, res) {
 app.get(links.SSF.BLOCK_BUGS_URL, function(req, res) {
   axios
     .get(links.SSF.BLOCK_BUGS_LINK)
+    .then(data => output.jsonOut(data)(res))
+    .catch(err => console.log(err))
+})
+
+app.get(links.SSF.ALL_BUGS_URL, function(req, res) {
+  axios
+    .get(links.SSF.ALL_BUGS_LINK)
+    .then(data => output.jsonOut(data)(res))
+    .catch(err => console.log(err))
+})
+
+app.get(links.SSP.ALL_BUGS_URL, function(req, res) {
+  axios
+    .get(links.SSP.ALL_BUGS_LINK)
     .then(data => output.jsonOut(data)(res))
     .catch(err => console.log(err))
 })
