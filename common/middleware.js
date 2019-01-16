@@ -1,4 +1,5 @@
-var chalk = require('chalk')
+const chalk = require('chalk')
+const colors = require('colors')
 
 module.exports = {
   cors: function(req, res, next) {
@@ -11,12 +12,16 @@ module.exports = {
   },
 
   log: function(req, res, next) {
+    console.log('\n=============== LOG ==============='.cyan)
     console.log(
-      chalk.green('NUDEL-PROXY:'),
+      chalk.cyan('NUDEL-PROXY:'),
       chalk.cyan(new Date().toString()),
       chalk.cyan(req.method),
       chalk.cyan(req.url)
     )
+    console.log(`req.url params ${JSON.stringify(req.params)}`.magenta)
+    console.log(`query ${JSON.stringify(req.query)}`.magenta)
+    console.log('\n')
     next()
   },
 
