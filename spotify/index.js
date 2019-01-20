@@ -33,7 +33,7 @@ module.exports = function(app) {
     }
     request.post(authOptions, function(error, response, body) {
       const access_token = body.access_token
-      res.send(`access_token ==> ${access_token}`)
+      res.status(200).send(`access_token ==> ${access_token}`)
 
       // let uri = 'http://localhost:5000'
       // res.redirect(uri + '?access_token=' + access_token)
